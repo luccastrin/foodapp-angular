@@ -6,4 +6,12 @@ html, body {
 body { 
   margin: 0; 
   font-family: 'Roboto', sans-serif;
+  background-color: #ECF0F5 !important;
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+  // padding-right: 100px !important;
+  // padding-left: 100px !important;
 }
