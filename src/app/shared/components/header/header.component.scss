@@ -1,0 +1,12 @@
+nav {
+  background-color: #990000;
+
+  a {
+    color: white;
+    cursor: pointer;
+
+    &.margin {
+      margin-right: 40px;
+    }
+  }
+}
