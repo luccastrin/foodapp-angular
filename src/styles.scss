@@ -12,6 +12,26 @@ body {
 .container {
   width: 1280px;
   margin: 0 auto;
-  // padding-right: 100px !important;
-  // padding-left: 100px !important;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.rating {
+  width: 10%;
+  display: flex;
+
+  i {
+    display: inline-block;
+    margin-right: 5px;
+  }
 }

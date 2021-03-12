@@ -6,20 +6,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ComponentsModule } from './shared/components/components.module';
-import { RestaurantsModule } from './pages/restaurants/restaurants.module';
-import { WelcomeModule } from './pages/welcome/welcome.module';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ComponentsModule,
-    WelcomeModule,
-    RestaurantsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

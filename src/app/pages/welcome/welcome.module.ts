@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
+import { WelcomeRoutingModule } from './welcome.routing.module';
 
 import { WelcomeComponent } from './welcome.component';
 
@@ -10,7 +11,7 @@ import { WelcomeComponent } from './welcome.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    WelcomeRoutingModule
   ],
   exports: [
     WelcomeComponent

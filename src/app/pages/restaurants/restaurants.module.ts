@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+
+import { RestaurantsRoutingModule } from './restaurants.rounting.module';
 
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -12,7 +13,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RestaurantsRoutingModule
   ],
   exports: [
     RestaurantsComponent
