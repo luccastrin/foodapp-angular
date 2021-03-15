@@ -1,6 +1,6 @@
 <section id="order">
   <div class="container">
-    <div class="content-background">
+    <div class="content-background" *ngIf="!validar">
       <div class="finish">
         <img src="./assets/images/shopping-cart.svg" alt="">
         <h2>Finalize seu pedido</h2>
@@ -27,19 +27,54 @@
 
         <div class="order-items">
           <h3>Itens do pedido:</h3>
-          <!-- <app-order-items></app-order-items> -->
+          <app-order-item></app-order-item>
         </div>
 
         <div class="finishing-order">
           <div class="payment-types">
+            <h3>Formas de pagamento:</h3>
+            <div class="radio-button">
+              <input type="radio">
+              <p>Dinheiro</p>
+            </div>
 
+            <div class="radio-button">
+              <input type="radio">
+              <p>Cartão de crédito</p>
+            </div>
+
+            <div class="radio-button">
+              <input type="radio">
+              <p>Vale refeição</p>
+            </div>
           </div>
 
           <div class="shipping-total">
+            <h3>Frete e total:</h3>
+            <div class="shipping-row border">
+              <p>Itens</p>
+              <p>R$ 44,50</p>
+            </div>
 
+            <div class="shipping-row">
+              <p>Itens</p>
+              <p>R$ 44,50</p>
+            </div>
+
+            <div class="shipping-row margin">
+              <p>Itens</p>
+              <p>R$ 44,50</p>
+            </div>
+
+            <button>Concluir pedido</button>
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="content-background alignment" *ngIf="validar">
+      <h1>Pedido Concluído!</h1>
+      <p>Seu pedido foi recebido pelo restaurante. Prepare a mesa que a comida está chegando!</p>
     </div>
   </div>
 </section>
