@@ -4,6 +4,7 @@
   .restaurant-filter {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 
     i {
       font-size: 25px;
@@ -15,6 +16,7 @@
     border: none;
     padding: 10px 15px;
     margin-bottom: 40px;
+    font-size: 16px;
   }
 
   .row {
@@ -26,7 +28,6 @@
     .background {
       background-color: white;
       padding: 5px; 
-      margin: 0 15px;
     }
   }
 }

@@ -9,8 +9,8 @@
     <input type="text" placeholder="O que você está procurando?">
 
     <div class="row">
-      <div *ngFor="let restaurant of [1, 2, 3, 4]" class="background">
-          <app-restaurant ></app-restaurant>
+      <div *ngFor="let restaurant of restaurants" class="background">
+        <app-restaurant [restaurant]="restaurant"></app-restaurant>
       </div>
     </div>
   </div>

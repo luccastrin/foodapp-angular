@@ -18,10 +18,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/order/order.module').then(m => m.OrderModule)
   },
   {
-    path: 'restaurant-detail',
-    loadChildren: () => import('./pages/restaurant-detail/restaurant-detail.module').then(m => m.RestaurantDetailModule)
-  },
-  {
     path: 'restaurants',
     loadChildren: () => import('./pages/restaurants/restaurants.module').then(m => m.RestaurantsModule)
   },

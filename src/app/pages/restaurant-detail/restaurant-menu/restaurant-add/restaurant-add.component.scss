@@ -5,55 +5,55 @@
   
   li {
     display: flex;
-
+    
     .food {
-        width: 15%;
+      width: 15%;
+      margin-right: 3%;
     }
-
+    
     .menu-item-content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      
       h2 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      
+      p {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      
+      .menu-alignment {
+        width: 82%;
+        display: flex;
+        
+        h3 {
           font-size: 20px;
           font-weight: 700;
-          text-transform: uppercase;
-      }
-
-      p {
-          font-size: 16px;
-          font-weight: 500;
-      }
-
-      .menu-alignment {
-          width: 85%;
+          margin-right: 30px;
+          margin-bottom: 0;
+        }
+        
+        .adding {
           display: flex;
-
-          h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-right: 30px;
+          align-items: center;
+          cursor: pointer;
+          
+          img {
+            width: 20px;
+            margin-right: 5px;
+          }
+          
+          p {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2196F3;
             margin-bottom: 0;
           }
-  
-          .adding {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-
-            img {
-              width: 20px;
-              margin-right: 5px;
-            }
-
-            p {
-              font-size: 16px;
-              font-weight: 500;
-              color: #2196F3;
-              margin-bottom: 0;
-            }
-          }
+        }
       }
     }
   }
