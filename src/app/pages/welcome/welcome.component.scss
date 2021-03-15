@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 #welcome {
   position: relative;
   margin-bottom: 150px;
@@ -32,22 +34,19 @@
 
     h1 {
       font-size: 52px;
+      letter-spacing: 10px;
       font-weight: 700;
       margin-bottom: 50px;
     }
     
     h2 {
-      font-size: 42px;
+      font-size: 30px;
       font-weight: 500;
       margin-bottom: 50px;
     }
 
     a {
-      display: inline-block;
-      background-color: #FF6600;
-      color: white;
-      font-size: 18px;
-      padding: 20px;
+      @include links(#FF6600, #FFF)
     }
   }
 }
