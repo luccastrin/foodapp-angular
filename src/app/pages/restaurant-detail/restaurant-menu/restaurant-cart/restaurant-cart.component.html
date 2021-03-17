@@ -4,28 +4,35 @@
     <h2>Carrinho</h2>
   </div>
 
-  <div class="cart-content">
-    <div class="cart-prices" *ngFor="let i of [1,2,3]">
-      <h2>{{ productNameSize.length > 13 ? productNameSize.substring(0,13) + '...' : productNameSize }}</h2>
-      <h3>R$26,10</h3>
-      <img src="./assets/images/close.svg" alt="">
+  <div class="confirmation empty" *ngIf="!detailData?.length">
+    <p>O carrinho está vazio!</p>
+  </div>
+
+  <div class="confirmation" *ngIf="detailData?.length">
+    <div class="cart-content">
+      <div class="cart-prices" *ngFor="let item of getDetailFromSibling()">
+        <h2>({{ item.quantity }}x) {{ item.menuItem.name.length > 13 ? item.menuItem.name.substring(0,13) + '...' :
+          item.menuItem.name }}</h2>
+        <h3>{{ item.value() | currency:'BRL' }}</h3>
+        <img src="./assets/images/close.svg" alt="">
+      </div>
     </div>
-  </div>
 
-  <div class="cart-total">
-    <h2>Total</h2>
-    <h3>R$ 44,50</h3>
-  </div>
+    <div class="cart-total" *ngIf="detailData?.length">
+      <h2>Total</h2>
+      <h3>{{ totalDetailPrice() | currency:'BRL' }}</h3>
+    </div>
 
-  <div class="order-closing">
-    <a class="clear">
-      <img src="./assets/images/trash.svg" alt="">
-      <p>Limpar</p>
-    </a>
+    <div class="order-closing" *ngIf="detailData?.length">
+      <a class="clear" (click)="clearDetailPrice()">
+        <img src="./assets/images/trash.svg" alt="">
+        <p>Limpar</p>
+      </a>
 
-    <a class="close" [routerLink]="['/order']">
-      <img src="./assets/images/credit-card.svg" alt="">
-      <p>Fechar Pedido</p>
-    </a>
+      <a class="close" [routerLink]="['/order']">
+        <img src="./assets/images/credit-card.svg" alt="">
+        <p>Fechar Pedido</p>
+      </a>
+    </div>
   </div>
 </section>

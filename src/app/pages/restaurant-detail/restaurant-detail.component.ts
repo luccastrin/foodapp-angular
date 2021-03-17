@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
+import { RestaurantsService } from '../../shared/services/restaurant.service';
 
-import { Restaurants } from 'src/app/shared/models/restaurants/restaurants.model';
+import { Restaurants } from '../../shared/models/restaurants/restaurants.model';
 
 @Component({
   selector: 'app-restaurant-detail',
@@ -27,6 +27,7 @@ export class RestaurantDetailComponent implements OnInit {
   populateRestaurantById(id) {
     this.restaurantsService.getRestaurantsById(id).subscribe(response => {
       this.restaurantDetail = response
+      // console.log(this.restaurantDetail);
     })
   }
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Reviews } from 'src/app/shared/models/restaurants/review.model';
 import { Menu } from 'src/app/shared/models/restaurants/menu.model';
 
 import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -18,6 +18,7 @@ export class RestaurantMenuComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private restaurantsService: RestaurantsService,
+    private shoppingCartService: ShoppingCartService
   ) { }
 
   ngOnInit(): void {
@@ -28,8 +29,7 @@ export class RestaurantMenuComponent implements OnInit {
 
   popularMenuById(id) {
     this.restaurantsService.getMenuById(id).subscribe(response => {
-      console.log('menu ', response);
-      this.menuDetails = response
+      this.menuDetails = response;
     })
   }
 }

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Menu } from 'src/app/shared/models/restaurants/menu.model';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-restaurant-add',
@@ -9,9 +10,13 @@ import { Menu } from 'src/app/shared/models/restaurants/menu.model';
 export class RestaurantAddComponent implements OnInit {
   @Input() menuDetail: Menu;
 
-  constructor() { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
   }
 
+  addingDataToCart() {
+    this.shoppingCartService.addDetail(this.menuDetail);
+    // console.log('add', this.shoppingCartService)
+  }
 }

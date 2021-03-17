@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { RestaurantsRoutingModule } from './restaurants.rounting.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { RestaurantsService } from '../../shared/services/restaurant.service';
+
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
-
-import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
 import { RestaurantDetailComponent } from '../restaurant-detail/restaurant-detail.component';
 import { RestaurantInformationComponent } from '../restaurant-detail/restaurant-information/restaurant-information.component';
 import { RestaurantAddComponent } from '../restaurant-detail/restaurant-menu/restaurant-add/restaurant-add.component';
@@ -36,7 +36,7 @@ import { RestaurantMenuComponent } from '../restaurant-detail/restaurant-menu/re
     RestaurantComponent
   ],
   providers: [
-    RestaurantsService
+    RestaurantsService,
   ]
 })
 export class RestaurantsModule { }

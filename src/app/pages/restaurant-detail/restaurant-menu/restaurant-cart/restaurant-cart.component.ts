@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Menu } from 'src/app/shared/models/restaurants/menu.model';
+
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-restaurant-cart',
@@ -6,11 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurant-cart.component.scss']
 })
 export class RestaurantCartComponent implements OnInit {
-  productNameSize = '(3x) Cup Cake';
+  detailData: Menu[];
 
-  constructor() { }
+  constructor(
+    private shoppingCartService: ShoppingCartService
+  ) { }
 
   ngOnInit(): void {
+    this.getDetailFromSibling();
   }
 
+  getDetailFromSibling() {
+    return this.shoppingCartService.detailArr;
+  }
+
+  totalDetailPrice() {
+    return this.shoppingCartService.total();
+  }
+
+  clearDetailPrice() {
+    return this.shoppingCartService.clear();
+  }
 }
