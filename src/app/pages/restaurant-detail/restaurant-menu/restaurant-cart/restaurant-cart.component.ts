@@ -9,7 +9,6 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
   styleUrls: ['./restaurant-cart.component.scss']
 })
 export class RestaurantCartComponent implements OnInit {
-  detailData: Menu[];
 
   constructor(
     private shoppingCartService: ShoppingCartService
@@ -20,10 +19,12 @@ export class RestaurantCartComponent implements OnInit {
   }
 
   getDetailFromSibling() {
+    // console.log(this.shoppingCartService.detailArr)
     return this.shoppingCartService.detailArr;
   }
 
   totalDetailPrice() {
+    console.log(this.shoppingCartService.total());
     return this.shoppingCartService.total();
   }
 

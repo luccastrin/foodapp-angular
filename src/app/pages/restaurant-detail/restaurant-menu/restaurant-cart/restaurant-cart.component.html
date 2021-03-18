@@ -4,26 +4,26 @@
     <h2>Carrinho</h2>
   </div>
 
-  <div class="confirmation empty" *ngIf="!detailData?.length">
+  <div class="confirmation empty" *ngIf="!getDetailFromSibling()?.length">
     <p>O carrinho está vazio!</p>
   </div>
 
-  <div class="confirmation" *ngIf="detailData?.length">
+  <div class="confirmation" *ngIf="getDetailFromSibling()?.length">
     <div class="cart-content">
       <div class="cart-prices" *ngFor="let item of getDetailFromSibling()">
-        <h2>({{ item.quantity }}x) {{ item.menuItem.name.length > 13 ? item.menuItem.name.substring(0,13) + '...' :
+        <h2>({{ item.quantity }}x) {{ item.menuItem.name.length > 9 ? item.menuItem.name.substring(0, 9) + '...' :
           item.menuItem.name }}</h2>
-        <h3>{{ item.value() | currency:'BRL' }}</h3>
+        <h3>{{ (item.quantity * item.menuItem.price) | currency:'BRL' }}</h3>
         <img src="./assets/images/close.svg" alt="">
       </div>
     </div>
 
-    <div class="cart-total" *ngIf="detailData?.length">
+    <div class="cart-total" *ngIf="getDetailFromSibling()?.length">
       <h2>Total</h2>
       <h3>{{ totalDetailPrice() | currency:'BRL' }}</h3>
     </div>
 
-    <div class="order-closing" *ngIf="detailData?.length">
+    <div class="order-closing" *ngIf="getDetailFromSibling()?.length">
       <a class="clear" (click)="clearDetailPrice()">
         <img src="./assets/images/trash.svg" alt="">
         <p>Limpar</p>

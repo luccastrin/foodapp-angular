@@ -7,6 +7,6 @@ export class CartItem {
   ) { }
 
   value() {
-    this.quantity * this.menuItem.price
+    this.quantity * this.menuItem.price;
   }
 }

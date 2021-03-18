@@ -10,13 +10,13 @@ export class ShoppingCartService {
 
   constructor() { }
 
+  behaviorSubject
+
   addDetail(detail: Menu) {
     let foundItem = this.detailArr.find(item => detail.id === item.menuItem.id);
     if (foundItem) {
-      console.log('ooooooo');
-      this.increaseQuantity(foundItem)
+      this.increaseQuantity(foundItem);
     } else {
-      console.log('aaaaaaaa');
       this.detailArr.push(new CartItem(detail));
     }
   }
@@ -25,9 +25,9 @@ export class ShoppingCartService {
     item.quantity++;
   }
 
-  total(): number {
+  total() {
     return this.detailArr
-      .map(item => item.menuItem.price)
+      .map(item => item.quantity * item.menuItem.price)
       .reduce((acc, curVal) => acc + curVal, 0)
   }
 
