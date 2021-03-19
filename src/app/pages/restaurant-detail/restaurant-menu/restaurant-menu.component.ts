@@ -30,6 +30,7 @@ export class RestaurantMenuComponent implements OnInit {
   popularMenuById(id) {
     this.restaurantsService.getMenuById(id).subscribe(response => {
       this.menuDetails = response;
+      console.log(this.menuDetails);
     })
   }
 }

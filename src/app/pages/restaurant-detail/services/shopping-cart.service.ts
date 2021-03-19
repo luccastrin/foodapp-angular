@@ -10,8 +10,6 @@ export class ShoppingCartService {
 
   constructor() { }
 
-  behaviorSubject
-
   addDetail(detail: Menu) {
     let foundItem = this.detailArr.find(item => detail.id === item.menuItem.id);
     if (foundItem) {
@@ -23,6 +21,22 @@ export class ShoppingCartService {
 
   increaseQuantity(item: CartItem) {
     item.quantity++;
+  }
+
+  decreaseQuantity(item: CartItem) {
+    item.quantity--;
+  }
+
+  decreaseQuantityCart(item: CartItem) {
+    if (item.quantity <= 1) {
+      this.detailArr.splice(this.detailArr.indexOf(item), 1)
+    } else {
+      item.quantity--;
+    }
+  }
+
+  removeItem(item: CartItem) {
+    this.detailArr.splice(this.detailArr.indexOf(item), 1);
   }
 
   total() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { animationFrameScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',

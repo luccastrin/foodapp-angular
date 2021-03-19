@@ -5,8 +5,4 @@ export class CartItem {
     public menuItem: Menu,
     public quantity: number = 1
   ) { }
-
-  value() {
-    this.quantity * this.menuItem.price;
-  }
 }

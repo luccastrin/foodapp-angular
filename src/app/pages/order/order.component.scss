@@ -54,9 +54,31 @@
         .inputs {
           display: flex;
           justify-content: space-between;
-          
-          input {
-            @include input();
+
+          .input-validation {
+            width: 30%;
+            
+            input {
+              @include input();
+              width: 100%;
+              margin-bottom: 5px;
+
+              &.success {
+                border: 1px solid green;
+              }
+
+              &.error {
+                border: 1px solid red;
+              }
+            }
+
+            .message {
+
+              p {
+                font-size: 13px;
+                color: red;
+              }
+            }
           }
         }
       }
@@ -108,6 +130,17 @@
           }
 
           button {
+            width: 50%;
+            position: relative;
+            padding-left: 25px;
+
+            img {
+              width: 25px;
+              position: absolute;
+              top: 24%;
+              left: 7px;
+            }
+
             @include links(#008D4C, #FFF);
             float: right;
             border: none;

@@ -6,28 +6,65 @@
         <h2>Finalize seu pedido</h2>
       </div>
 
-      <form>
+      <form [formGroup]="formContent" novalidade>
         <div class="form-content">
           <h3>Seus dados</h3>
           <div class="inputs">
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="E-mail">
-            <input type="email" placeholder="Confirmação do email">
+            <div class="input-validation">
+              <input [ngClass]="formValidation('name')" formControlName="name" type="text" placeholder="Nome">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('name').valid && this.formContent.get('name').touched">campo obrigatório
+                </p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input [ngClass]="formValidation('email')" formControlName="email" type="email" placeholder="E-mail">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('email').valid && this.formContent.get('email').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input [ngClass]="formValidation('confirm')" formControlName="confirm" type="email"
+                placeholder="Confirmação do email">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('confirm').valid && this.formContent.get('confirm').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="form-content">
           <h3>Endereço de entrega</h3>
           <div class="inputs">
-            <input type="text" placeholder="Endereço">
-            <input type="email" placeholder="Número">
-            <input type="email" placeholder="Complemento">
+            <div class="input-validation">
+              <input [ngClass]="formValidation('address')" formControlName="address" type="text" placeholder="Endereço">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('address').valid && this.formContent.get('address').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input [ngClass]="formValidation('number')" formControlName="number" type="email" placeholder="Número">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('number').valid && this.formContent.get('number').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input formControlName="complement" type="email" placeholder="Complemento">
+              <!-- <div class="message">
+                <p>campo obrigatório</p>
+              </div> -->
+            </div>
           </div>
         </div>
 
         <div class="order-items">
           <h3>Itens do pedido:</h3>
-          <app-order-item></app-order-item>
+          <app-order-item [detail]="getDetailFromCart()" (increase)="addQuantity($event)"
+            (decrease)="removeQuantity($event)" (remove)="removeItem($event)"></app-order-item>
         </div>
 
         <div class="finishing-order">
@@ -53,20 +90,23 @@
             <h3>Frete e total:</h3>
             <div class="shipping-row border">
               <p>Itens</p>
-              <p>R$ 44,50</p>
+              <p>{{ total() | currency:'BRL' }}</p>
             </div>
 
             <div class="shipping-row">
-              <p>Itens</p>
-              <p>R$ 44,50</p>
+              <p>Frete</p>
+              <p>R$ 8.00</p>
             </div>
 
             <div class="shipping-row margin">
-              <p>Itens</p>
-              <p>R$ 44,50</p>
+              <p>Total</p>
+              <p>{{ total() | currency:'BRL' }}</p>
             </div>
 
-            <button>Concluir pedido</button>
+            <button [disabled]="!formContent.valid || getDetailFromCart().length === 0">
+              <!-- <img src="./assets/images/credit-card.svg" alt=""> -->
+              Concluir Pedido
+            </button>
           </div>
         </div>
       </form>

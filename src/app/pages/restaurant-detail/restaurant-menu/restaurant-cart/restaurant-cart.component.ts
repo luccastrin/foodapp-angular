@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Menu } from 'src/app/shared/models/restaurants/menu.model';
-
+import { CartItem } from '../../models/cart-item.model';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
@@ -19,16 +18,22 @@ export class RestaurantCartComponent implements OnInit {
   }
 
   getDetailFromSibling() {
-    // console.log(this.shoppingCartService.detailArr)
     return this.shoppingCartService.detailArr;
   }
 
   totalDetailPrice() {
-    console.log(this.shoppingCartService.total());
     return this.shoppingCartService.total();
   }
 
   clearDetailPrice() {
     return this.shoppingCartService.clear();
+  }
+
+  decrease(item) {
+    return this.shoppingCartService.decreaseQuantityCart(item);
+  }
+
+  deleteItem(item) {
+    return this.shoppingCartService.removeItem(item)
   }
 }
