@@ -29,17 +29,26 @@ export class OrderComponent implements OnInit {
       address: ['', Validators.required],
       number: ['', Validators.required],
       complement: [''],
+      radios: this.form.group({
+        radio_button: ['', Validators.required]
+      })
     });
 
     console.log(this.formContent);
   }
 
-  formValidation(type: string) {
+  inputValidation(type: string) {
     let valid = this.formContent.get(type).valid;
     let dirty = this.formContent.get(type).dirty;
     let touched = this.formContent.get(type).touched;
 
-    return valid && dirty && touched ? 'success' : 'error';
+    if (touched) {
+      return valid && dirty && touched ? 'success' : 'error';
+    }
+  }
+
+  formValidation() {
+    return this.formContent.valid ? 'button-success' : 'button-disabled';
   }
 
   getDetailFromCart() {
@@ -60,5 +69,24 @@ export class OrderComponent implements OnInit {
 
   total() {
     return this.cartOrderService.getTotal();
+  }
+
+  mappingForm() {
+    return {
+      name: this.formContent.get('name').value,
+      email: this.formContent.get('email').value,
+      confirm: this.formContent.get('confirm').value,
+      address: this.formContent.get('address').value,
+      number: this.formContent.get('number').value,
+      complement: this.formContent.get('number').value,
+      total: this.total()
+      // radios: this.formContent.get('radios').
+    }
+  }
+
+  submitForm() {
+    let form = this.mappingForm();
+    this.validar = true;
+    console.log(form);
   }
 }

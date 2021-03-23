@@ -85,6 +85,14 @@
 
       .order-items {
         margin-bottom: 40px;
+
+        p {
+          font-size: 15px;
+          color: red;
+          font-weight: 700;
+          border: 1px solid red;
+          padding: 15px;
+        }
       }
 
       .finishing-order {
@@ -130,22 +138,26 @@
           }
 
           button {
+            float: right;
             width: 50%;
             position: relative;
-            padding-left: 25px;
+            padding: 15px 0 15px 25px;
+            border: none;
 
             img {
               width: 25px;
               position: absolute;
-              top: 24%;
-              left: 7px;
+              top: 22%;
+              left: 16px;
             }
 
-            @include links(#008D4C, #FFF);
-            float: right;
-            border: none;
-            font-size: 16px;
-            padding: 15px;
+            &.button-success {
+              @include links(#008D4C, #FFF);
+            }
+
+            &.button-disabled {
+              @include links(#a9a9a9, #FFF);
+            }
           }
         }
       }

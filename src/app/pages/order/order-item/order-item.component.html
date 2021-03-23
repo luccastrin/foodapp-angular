@@ -14,7 +14,7 @@
     </div>
     <p class="item">{{ item.menuItem.name }}</p>
     <p class="description">{{ item.menuItem.description }}</p>
-    <p class="total">{{ (item.quantity * item.menuItem.price) | currency:'BRL' }}</p>
+    <p class="total">{{ (item.quantity * item.menuItem.price) | currency: 'BRL' }}</p>
     <div class="image">
       <img (click)="removeItem()" src="./assets/images/close.svg" alt="">
     </div>

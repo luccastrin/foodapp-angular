@@ -8,19 +8,24 @@ import { OrderItemComponent } from './order-item/order-item.component';
 
 import { CartOrderService } from './services/cart-order.service';
 
+
 @NgModule({
   declarations: [
     OrderComponent,
-    OrderItemComponent
+    OrderItemComponent,
   ],
   imports: [
     CommonModule,
     orderRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    CartOrderService,
+    CartOrderService
+  ],
+  exports: [
+    OrderComponent,
+    OrderItemComponent,
   ]
 })
 export class OrderModule { }
