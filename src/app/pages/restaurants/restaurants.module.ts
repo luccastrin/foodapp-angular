@@ -15,7 +15,6 @@ import { RestaurantCartComponent } from '../restaurant-detail/restaurant-menu/re
 import { RestaurantEvaluationComponent } from '../restaurant-detail/restaurant-evaluation/restaurant-evaluation.component';
 import { RestaurantMenuComponent } from '../restaurant-detail/restaurant-menu/restaurant-menu.component';
 
-
 @NgModule({
   declarations: [
     RestaurantsComponent,

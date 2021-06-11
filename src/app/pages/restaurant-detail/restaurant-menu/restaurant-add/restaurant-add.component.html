@@ -5,7 +5,7 @@
       <h2>{{ menuDetail?.name | uppercase }}</h2>
       <p>{{ menuDetail?.description }}</p>
       <div class="menu-alignment">
-        <h3>{{ menuDetail?.price | currency: 'BRL' }}</h3>
+        <h3>{{ menuDetail?.price | currency:'BRL' }}</h3>
         <a class="adding">
           <img src="./assets/images/plus.svg" alt="">
           <p (click)="addingDataToCart()">Adicionar</p>

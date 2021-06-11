@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'currency: 'BRL''
+  name: 'currencyFormat'
 })
-export class currency: 'BRL'Pipe implements PipeTransform {
+export class CurrencyFormat implements PipeTransform {
 
-  transform(value: number, ...args: any[]): string {
+  transform(value: number): string {
     let moneySign = 'R$';
-    let value2 = value.toString().replace('.', ',')
+    let value2 = value.toString().replace('.', ',');
 
     if (!value2.includes(',')) {
       return (`${moneySign} ${value2},0`);

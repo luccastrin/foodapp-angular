@@ -1,8 +1,9 @@
-import { currency: 'BRL'Pipe } from './currency-format.pipe';
+import { CurrencyFormat } from './currency-format.pipe';
 
-describe('currency: 'BRL'Pipe', () => {
+describe('CurrencyFormat', () => {
+
   it('create an instance', () => {
-    const pipe = new currency: 'BRL'Pipe();
+    const pipe = new CurrencyFormat();
     expect(pipe).toBeTruthy();
   });
 });

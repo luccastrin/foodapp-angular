@@ -8,7 +8,6 @@ import { OrderItemComponent } from './order-item/order-item.component';
 
 import { CartOrderService } from './services/cart-order.service';
 
-
 @NgModule({
   declarations: [
     OrderComponent,
