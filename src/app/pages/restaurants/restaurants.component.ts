@@ -20,7 +20,6 @@ export class RestaurantsComponent implements OnInit {
   populateRestaurants() {
     this.restaurantsService.getRestaurants().subscribe(response => {
       this.restaurants = response;
-    })
+    });
   }
-
 }

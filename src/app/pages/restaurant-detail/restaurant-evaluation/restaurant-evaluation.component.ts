@@ -9,7 +9,7 @@ import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
   styleUrls: ['./restaurant-evaluation.component.scss']
 })
 export class RestaurantEvaluationComponent implements OnInit {
-  reviewsDetais: Reviews[];
+  reviewsDetais: Reviews;
   idPathMenu: string;
   reviewImages: string[] = [
     './assets/images/reactions/loved.png',
@@ -24,7 +24,6 @@ export class RestaurantEvaluationComponent implements OnInit {
 
   ngOnInit(): void {
     this.idPathMenu = this.route.parent.snapshot.paramMap.get('id');
-
     this.popularReviewsById(this.idPathMenu);
   }
 

@@ -21,13 +21,12 @@ export class RestaurantDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.idPathRestaurants = this.route.snapshot.paramMap.get('id');
-    this.populateRestaurantById(this.idPathRestaurants)
+    this.populateRestaurantById(this.idPathRestaurants);
   }
 
   populateRestaurantById(id) {
     this.restaurantsService.getRestaurantsById(id).subscribe(response => {
-      this.restaurantDetail = response
-      // console.log(this.restaurantDetail);
+      this.restaurantDetail = response;
     })
   }
 }

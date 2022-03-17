@@ -33,8 +33,6 @@ export class OrderComponent implements OnInit {
         radio_button: ['', Validators.required]
       })
     });
-
-    console.log(this.formContent);
   }
 
   inputValidation(type: string) {

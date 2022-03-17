@@ -1,25 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing"
+import { RouterTestingModule } from "@angular/router/testing";
+import { RestaurantCartComponent } from "./restaurant-cart.component";
 
-import { RestaurantCartComponent } from './restaurant-cart.component';
-
-describe('RestaurantCartComponent', () => {
+describe('OrderComponent', () => {
   let component: RestaurantCartComponent;
   let fixture: ComponentFixture<RestaurantCartComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ RestaurantCartComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [RestaurantCartComponent],
+      imports: [RouterTestingModule]
+    });
+
     fixture = TestBed.createComponent(RestaurantCartComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it('Deve criar o component', () => {
+    expect(RestaurantCartComponent).toBeTruthy(true);
+  })
+})
+

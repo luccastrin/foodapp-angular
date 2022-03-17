@@ -8,7 +8,9 @@ import { CartItem } from '../models/cart-item.model';
 export class ShoppingCartService {
   detailArr: CartItem[] = [];
 
-  constructor() { }
+  constructor() {
+    console.log(this.detailArr)
+  }
 
   addDetail(detail: Menu) {
     let foundItem = this.detailArr.find(item => detail.id === item.menuItem.id);
