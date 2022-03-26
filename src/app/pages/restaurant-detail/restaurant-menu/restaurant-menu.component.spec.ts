@@ -1,31 +1,26 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing"
-import { RouterTestingModule } from "@angular/router/testing";
-import { RestaurantsService } from "src/app/shared/services/restaurant.service";
 import { RestaurantMenuComponent } from "./restaurant-menu.component";
 
 describe('RestaurantMenuComponent', () => {
   let component: RestaurantMenuComponent;
-  let fixture: ComponentFixture<RestaurantMenuComponent>;
-  let mockRestaurantService;
+  let mockRestaurantService: any;
+  let mockRouteActivated: any;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [RestaurantMenuComponent],
-      imports: [RouterTestingModule],
-      providers: [
-        {
-          provide: RestaurantsService,
-          useValue: mockRestaurantService
-        }
-      ]
-    });
+    mockRestaurantService = {
+      getRestaurants: jest.fn()
+    }
 
-    fixture = TestBed.createComponent(RestaurantMenuComponent);
-    component = fixture.componentInstance;
+    mockRouteActivated = {
+      snapshot: {
+        paramMap: 'id'
+      }
+    }
 
-  });
 
-  it('Deve criar o component', () => {
-    expect(RestaurantMenuComponent).toBeTruthy(true);
+    component = new RestaurantMenuComponent(mockRouteActivated, mockRestaurantService)
   })
+
+  it('Should create the component', () => {
+    expect(component).toBeTruthy();
+  });
 })

@@ -1,57 +1,37 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing"
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { RouterTestingModule } from "@angular/router/testing";
-import { RestaurantsService } from "src/app/shared/services/restaurant.service";
-import { OrderComponent } from "./order.component";
+import { FormBuilder, Validators } from "@angular/forms";
+import { OrderComponent } from "../order/order.component";
 
 describe('OrderComponent', () => {
   let component: OrderComponent;
-  let fixture: ComponentFixture<OrderComponent>;
-  let mockRestaurantService;
+  let mockCartOrderService: any;
+  let formOrder: any;
+  let fb = new FormBuilder();
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [OrderComponent],
-      imports: [ReactiveFormsModule, RouterTestingModule],
-      providers: [
-        {
-          provide: RestaurantsService,
-          useValue: mockRestaurantService
-        }
-      ]
+    mockCartOrderService = {
+      getDetailArr: jest.fn(),
+      getIncreaseQuantity: jest.fn(),
+      getDrecreaseQuantity: jest.fn(),
+      getRemoveItem: jest.fn(),
+      getTotal: jest.fn(),
+    }
+
+    formOrder = fb.group({
+      name: ['', [Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
+      confirm: ['', Validators.required],
+      address: ['', Validators.required],
+      number: ['', Validators.required],
+      complement: [''],
+      radios: fb.group({
+        radio_button: ['', Validators.required]
+      })
     });
 
-    fixture = TestBed.createComponent(OrderComponent);
-    component = fixture.componentInstance;
+    component = new OrderComponent(mockCartOrderService, fb)
+  })
 
-  });
-
-  it('Deve criar o component', () => {
-    expect(OrderComponent).toBeTruthy(true);
-  });
-
-  it('Deve inicializar o formulário no método OnInit', () => {
-    // Arrange
-
-    // Act
-    component.createForm();
-    component.ngOnInit();
-
-    // Assert
+  it('Should create the component', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('Deve checar a validade do formulário se estiver vazio', () => {
-    // Arrange
-    let validForm = component.formContent.valid;
-    console.log(validForm);
-
-    // Act
-    component.createForm();
-    fixture.detectChanges();
-
-    // Assert
-    expect(validForm).toBeFalsy();
-    expect(component.createForm).toHaveBeenCalled();
   });
 })

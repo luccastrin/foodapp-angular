@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Reviews } from 'src/app/shared/models/restaurants/review.model';
-import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
+import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 
 @Component({
   selector: 'app-restaurant-evaluation',

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RestaurantsRoutingModule } from './restaurants.rounting.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { RestaurantsService } from '../../shared/services/restaurant.service';
+import { RestaurantsService } from '../../shared/services/restaurants.service';
 
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';

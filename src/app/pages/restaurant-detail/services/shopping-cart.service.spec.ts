@@ -1,16 +1,13 @@
-import { TestBed } from '@angular/core/testing';
-
-import { ShoppingCartService } from './shopping-cart.service';
+import { ShoppingCartService } from "./shopping-cart.service";
 
 describe('ShoppingCartService', () => {
-  let service: ShoppingCartService;
+  let component: ShoppingCartService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ShoppingCartService);
+    component = new ShoppingCartService();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  it('Should create the component', () => {
+    expect(component).toBeTruthy();
+  })
+})

@@ -3,9 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Menu } from 'src/app/shared/models/restaurants/menu.model';
 
-import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
-import { ShoppingCartService } from '../services/shopping-cart.service';
-
+import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 @Component({
   selector: 'app-restaurant-menu',
   templateUrl: './restaurant-menu.component.html',
@@ -18,7 +16,6 @@ export class RestaurantMenuComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private restaurantsService: RestaurantsService,
-    private shoppingCartService: ShoppingCartService
   ) { }
 
   ngOnInit(): void {
