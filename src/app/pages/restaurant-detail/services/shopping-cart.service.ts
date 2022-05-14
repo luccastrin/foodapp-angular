@@ -9,7 +9,6 @@ export class ShoppingCartService {
   detailArr: CartItem[] = [];
 
   constructor() {
-    console.log(this.detailArr)
   }
 
   addDetail(detail: Menu) {
