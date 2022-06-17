@@ -26,6 +26,7 @@ export class RestaurantDetailComponent implements OnInit {
 
   populateRestaurantById(id) {
     this.restaurantsService.getRestaurantsById(id).subscribe(response => {
+      console.log('getRestaurantsById', response)
       this.restaurantDetail = response;
     })
   }

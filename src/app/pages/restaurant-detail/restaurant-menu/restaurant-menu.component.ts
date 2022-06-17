@@ -26,6 +26,7 @@ export class RestaurantMenuComponent implements OnInit {
 
   popularMenuById(id) {
     this.restaurantsService.getMenuById(id).subscribe(response => {
+      console.log('getMenuById', response)
       this.menuDetails = response;
       // console.log(this.menuDetails);
     })

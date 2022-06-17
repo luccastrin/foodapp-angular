@@ -1,0 +1,17 @@
+{
+  "request": {
+    "headers": [],
+    "query": [],
+    "params": [],
+    "body": {}
+  },
+  "response": {
+    "headers": [],
+    "status": 200,
+    "content": {
+      "data": [],
+      "link": [],
+      "errors": []
+    }
+  }
+}
