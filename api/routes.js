@@ -1,14 +1,10 @@
 const express = require('express');
-const { montaResposta, carregaMocks } = require('./utils');
+const { montaResposta } = require('./utils');
 
 const routerMain = express.Router();
 
-// console.log(carregaMocks('restaurants'))
-
-routerMain.get('/restaurants', (req, res) => {
+routerMain.get('/', (req, res) => {
   montaResposta(req, res, 'restaurants');
 });
 
-module.exports = {
-  routerMain
-}
+module.exports = routerMain;

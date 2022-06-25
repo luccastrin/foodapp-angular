@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const path = './api/tescases';
+const path = './api/testcases';
 const path2 = './testcases';
 
 function carregaMocks(endpoint) {
@@ -50,7 +50,8 @@ function processaRequisicao(req, endpoint, statusEsperado = null) {
   };
 
   for (let i = 0; i < mocks.length; i++) {
-    const mock = mock[i];
+    const mock = mocks[i];
+
 
     valid.headers = processaValores(mock.request.headers, req.headers);
     valid.query = processaValores(mock.request.query, req.query);
@@ -84,6 +85,5 @@ function montaResposta(req, res, endpoint, expectedStatus = null) {
 }
 
 module.exports = {
-  montaResposta,
-  carregaMocks
+  montaResposta
 }
