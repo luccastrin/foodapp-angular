@@ -7,7 +7,8 @@ const doc = {
   info: {
     title: 'My Mock',
   },
-  host: 'localhost:3000',
+  host: undefined,
+  basePath: '/',
   schemes: ['http'],
   consumes: ['application/json'],
   produces: ['application/json']
