@@ -1,0 +1,38 @@
+<div class="restaurant-top">
+  <div class="name">
+    <i class="fas fa-home"></i>
+    <p>{{ restaurantDetail?.name }}</p>
+  </div>
+
+  <div class="rating">
+    <i class="fa fa-star"></i>
+    <p>{{ restaurantDetail?.rating }}</p>
+  </div>
+</div>
+
+<div class="restaurant-center">
+  <img [src]="restaurantDetail?.imagePath" alt="">
+  <div class="content">
+    <div class="alignment">
+      <h2>Categoria</h2>
+      <p>{{ restaurantDetail?.category }}</p>
+    </div>
+    <div class="alignment">
+      <h2>Quem somos</h2>
+      <p>{{ restaurantDetail?.about }}</p>
+    </div>
+    <div class="alignment">
+      <h2>Horário</h2>
+      <p>{{ restaurantDetail?.hours }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="restaurant-bottom">
+  <div class="alignment">
+    <a [routerLink]="['menu']" [routerLinkActive]="['is-active']">Menu</a>
+  </div>
+  <div class="alignment">
+    <a [routerLink]="['evaluation']" [routerLinkActive]="['is-active']">Avaliações</a>
+  </div>
+</div>

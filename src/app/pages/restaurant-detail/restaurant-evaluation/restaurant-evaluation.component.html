@@ -1,0 +1,21 @@
+<ul class="reviews">
+  <li *ngFor="let review of reviewsDetais">
+    <div class="review-content">
+      <img *ngIf="review.rating > 3.5" [src]="reviewImages[0]" alt="">
+      <img *ngIf="review.rating <= 2.5" [src]="reviewImages[1]" alt="">
+      <img *ngIf="review.rating > 2.5 && review.rating <= 3.5" [src]="reviewImages[2]" alt="">
+
+      <div class="name-date">
+        <h2>{{ review.name }}</h2>
+        <h3>{{ review.date | date: 'dd/MM/yyyy' }}</h3>
+      </div>
+    </div>
+
+    <p>{{ review.comments }}</p>
+
+    <div class="rating">
+      <img src="./assets/images/star.svg" alt="">
+      <p>{{ review.rating }}</p>
+    </div>
+  </li>
+</ul>

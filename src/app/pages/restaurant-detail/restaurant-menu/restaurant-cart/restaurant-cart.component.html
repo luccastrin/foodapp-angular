@@ -1,0 +1,42 @@
+<section id="shopping-cart">
+  <div class="cart">
+    <img src="./assets/images/shopping-cart.svg" alt="">
+    <h2>Carrinho</h2>
+  </div>
+
+  <div class="confirmation empty" *ngIf="!getDetailFromSibling()?.length">
+    <p>O carrinho está vazio!</p>
+  </div>
+
+  <div class="confirmation" *ngIf="getDetailFromSibling()?.length">
+    <div class="cart-content">
+      <div class="cart-prices" *ngFor="let item of getDetailFromSibling()">
+        <h2>({{ item.quantity }}x) {{ item.menuItem.name.length > 12 ? item.menuItem.name.substring(0, 12) + '...' :
+          item.menuItem.name }}</h2>
+        <h3>{{ (item.quantity * item.menuItem.price) | currency:'BRL' }}</h3>
+
+        <div class="buttons">
+          <img (click)="decrease(item)" src="./assets/images/substract.svg" alt="">
+          <img (click)="deleteItem(item)" src="./assets/images/close.svg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-total" *ngIf="getDetailFromSibling()?.length">
+      <h2>Total</h2>
+      <h3>{{ totalDetailPrice() | currency:'BRL' }}</h3>
+    </div>
+
+    <div class="order-closing" *ngIf="getDetailFromSibling()?.length">
+      <a class="clear" (click)="clearDetailPrice()">
+        <img src="./assets/images/trash.svg" alt="">
+        <p>Limpar</p>
+      </a>
+
+      <a class="close" [routerLink]="['/order']">
+        <img src="./assets/images/credit-card.svg" alt="">
+        <p>Fechar Pedido</p>
+      </a>
+    </div>
+  </div>
+</section>

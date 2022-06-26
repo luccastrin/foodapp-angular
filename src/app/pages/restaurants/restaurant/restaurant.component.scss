@@ -1,0 +1,25 @@
+a {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: black;
+
+  img {
+    width: 20%;
+    margin-right: 2%;
+  }
+
+  .restaurant-info {
+    width: 68%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  
+}

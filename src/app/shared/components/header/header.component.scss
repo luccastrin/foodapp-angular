@@ -1,0 +1,35 @@
+#header {
+  background-color: #990000;
+  padding: 20px 0;
+  
+  .alignment {
+    display: flex;
+    align-items: center;
+    
+    .logo {
+      margin-right: 50px;
+      
+      a {
+        font-size: 20px;
+        cursor: pointer;
+        display: inline-block;
+        color: white;
+      }
+    }
+    
+    
+    ul {
+      display: flex;
+      
+      li {
+        margin-right: 20px;
+
+        a {
+          font-size: 16px;
+          color: white;
+        }
+      }
+    }
+  }
+
+}

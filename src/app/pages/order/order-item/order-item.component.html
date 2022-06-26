@@ -1,0 +1,22 @@
+<div class="order-table">
+  <div class="title">
+    <p class="amount">Quantidade</p>
+    <p class="item">Item</p>
+    <p class="description">Descrição</p>
+    <p class="total">Subtotal</p>
+  </div>
+
+  <div class="items" *ngFor="let item of detail">
+    <div class="numbers amount">
+      <img (click)="decreaseQuantity(item)" src="./assets/images/minus.svg" alt="">
+      <p>{{ item.quantity }}</p>
+      <img (click)="increaseQuantity(item)" src="./assets/images/plus_2.svg" alt="">
+    </div>
+    <p class="item">{{ item.menuItem.name }}</p>
+    <p class="description">{{ item.menuItem.description }}</p>
+    <p class="total">{{ (item.quantity * item.menuItem.price) | currency: 'BRL' }}</p>
+    <div class="image">
+      <img (click)="removeItem()" src="./assets/images/close.svg" alt="">
+    </div>
+  </div>
+</div>
