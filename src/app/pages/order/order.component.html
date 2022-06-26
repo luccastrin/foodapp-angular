@@ -13,14 +13,14 @@
             <div class="input-validation">
               <input [ngClass]="inputValidation('name')" formControlName="name" type="text" placeholder="Nome">
               <div class="message">
-                <p *ngIf="!this.formContent.get('name').valid && this.formContent.get('name').touched">campo obrigatório
+                <p *ngIf="!formContent.get('name').valid && formContent.get('name').touched">campo obrigatório
                 </p>
               </div>
             </div>
             <div class="input-validation">
               <input [ngClass]="inputValidation('email')" formControlName="email" type="email" placeholder="E-mail">
               <div class="message">
-                <p *ngIf="!this.formContent.get('email').valid && this.formContent.get('email').touched">campo
+                <p *ngIf="!formContent.get('email').valid && formContent.get('email').touched">campo
                   obrigatório</p>
               </div>
             </div>
@@ -28,7 +28,7 @@
               <input [ngClass]="inputValidation('confirm')" formControlName="confirm" type="email"
                 placeholder="Confirmação do email">
               <div class="message">
-                <p *ngIf="!this.formContent.get('confirm').valid && this.formContent.get('confirm').touched">campo
+                <p *ngIf="!formContent.get('confirm').valid && formContent.get('confirm').touched">campo
                   obrigatório</p>
               </div>
             </div>

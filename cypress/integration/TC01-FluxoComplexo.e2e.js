@@ -1,7 +1,9 @@
 /// <reference types="Cypress" />
 
 const WelcomeAction = require('../pages/welcome');
-const RestaurantsUI = require('../pages/restaurants');
+const Restaurants = require('../pages/restaurants');
+const RestaurantDetail = require('../pages/restaurant-detail');
+const Order = require('../pages/order');
 
 describe('FoodApp: Fluxo completo', function () {
   before(function () {
@@ -12,9 +14,28 @@ describe('FoodApp: Fluxo completo', function () {
   });
 
   it('Fluxo completo', function () {
-    cy.pause();
     WelcomeAction.UI.clicarLinkVerRestaurantes();
 
-    RestaurantsUI.UI.selecionarRestaurante();
+    Restaurants.UI.selecionarRestaurante();
+
+    RestaurantDetail.UI.adicionarRestaurante();
+
+    RestaurantDetail.UI.clicarFecharPedido();
+
+    Order.UI.preencherDadosPessoais(
+      this.data.nomeCliente,
+      this.data.email,
+      this.data.confirmacaoEmail
+    );
+
+    Order.UI.preencherEndereco(
+      this.data.endereco,
+      this.data.numero,
+      this.data.complemento
+    );
+
+    Order.UI.selecionarRadioButton();
+
+    Order.UI.clicarFecharPedido();
   });
 });
