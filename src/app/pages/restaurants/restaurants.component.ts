@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Restaurants } from 'src/app/shared/models/restaurants/restaurants.model';
-import { RestaurantsService } from 'src/app/shared/services/restaurant.service';
+import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -20,7 +20,6 @@ export class RestaurantsComponent implements OnInit {
   populateRestaurants() {
     this.restaurantsService.getRestaurants().subscribe(response => {
       this.restaurants = response;
-    })
+    });
   }
-
 }

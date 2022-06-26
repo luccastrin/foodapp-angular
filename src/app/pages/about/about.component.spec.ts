@@ -1,25 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AboutComponent } from "./about.component";
 
-import { AboutComponent } from './about.component';
-
-describe('SobreComponent', () => {
+describe('AboutComponent', () => {
   let component: AboutComponent;
-  let fixture: ComponentFixture<AboutComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AboutComponent ]
-    })
-    .compileComponents();
-  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AboutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new AboutComponent();
   });
 
-  it('should create', () => {
+  it('Should create the component', () => {
     expect(component).toBeTruthy();
   });
-});
+})

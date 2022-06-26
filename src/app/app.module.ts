@@ -20,6 +20,8 @@ import { AboutComponent } from './pages/about/about.component';
     ComponentsModule,
   ],
   providers: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

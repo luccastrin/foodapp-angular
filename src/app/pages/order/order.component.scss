@@ -54,15 +54,45 @@
         .inputs {
           display: flex;
           justify-content: space-between;
-          
-          input {
-            @include input();
+
+          .input-validation {
+            width: 30%;
+            
+            input {
+              @include input();
+              width: 100%;
+              margin-bottom: 5px;
+
+              &.success {
+                border: 1px solid green;
+              }
+
+              &.error {
+                border: 1px solid red;
+              }
+            }
+
+            .message {
+
+              p {
+                font-size: 13px;
+                color: red;
+              }
+            }
           }
         }
       }
 
       .order-items {
         margin-bottom: 40px;
+
+        p {
+          font-size: 15px;
+          color: red;
+          font-weight: 700;
+          border: 1px solid red;
+          padding: 15px;
+        }
       }
 
       .finishing-order {
@@ -108,11 +138,26 @@
           }
 
           button {
-            @include links(#008D4C, #FFF);
             float: right;
+            width: 50%;
+            position: relative;
+            padding: 15px 0 15px 25px;
             border: none;
-            font-size: 16px;
-            padding: 15px;
+
+            img {
+              width: 25px;
+              position: absolute;
+              top: 22%;
+              left: 16px;
+            }
+
+            &.button-success {
+              @include links(#008D4C, #FFF);
+            }
+
+            &.button-disabled {
+              @include links(#a9a9a9, #FFF);
+            }
           }
         }
       }

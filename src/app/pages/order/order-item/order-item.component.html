@@ -6,17 +6,17 @@
     <p class="total">Subtotal</p>
   </div>
 
-  <div class="items" *ngFor="let i of [1,2,3]">
+  <div class="items" *ngFor="let item of detail">
     <div class="numbers amount">
-      <img src="./assets/images/minus.svg" alt="">
-      <p>3</p>
-      <img src="./assets/images/plus_2.svg" alt="">
+      <img (click)="decreaseQuantity(item)" src="./assets/images/minus.svg" alt="">
+      <p>{{ item.quantity }}</p>
+      <img (click)="increaseQuantity(item)" src="./assets/images/plus_2.svg" alt="">
     </div>
-    <p class="item">Cupcake</p>
-    <p class="description">Cup Cake recheado de Doce de Leite</p>
-    <p class="total">R$26,10</p>
+    <p class="item">{{ item.menuItem.name }}</p>
+    <p class="description">{{ item.menuItem.description }}</p>
+    <p class="total">{{ (item.quantity * item.menuItem.price) | currency: 'BRL' }}</p>
     <div class="image">
-      <img src="./assets/images/close.svg" alt="">
+      <img (click)="removeItem()" src="./assets/images/close.svg" alt="">
     </div>
   </div>
 </div>

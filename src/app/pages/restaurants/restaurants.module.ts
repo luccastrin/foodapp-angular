@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RestaurantsRoutingModule } from './restaurants.rounting.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { RestaurantsService } from '../../shared/services/restaurant.service';
+import { RestaurantsService } from '../../shared/services/restaurants.service';
 
 import { RestaurantsComponent } from './restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -24,16 +24,22 @@ import { RestaurantMenuComponent } from '../restaurant-detail/restaurant-menu/re
     RestaurantAddComponent,
     RestaurantCartComponent,
     RestaurantEvaluationComponent,
-    RestaurantMenuComponent
+    RestaurantMenuComponent,
   ],
   imports: [
     CommonModule,
     RestaurantsRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     RestaurantsComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    RestaurantDetailComponent,
+    RestaurantInformationComponent,
+    RestaurantAddComponent,
+    RestaurantCartComponent,
+    RestaurantEvaluationComponent,
+    RestaurantMenuComponent,
   ],
   providers: [
     RestaurantsService,

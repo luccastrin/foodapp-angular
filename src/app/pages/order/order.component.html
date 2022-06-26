@@ -6,46 +6,88 @@
         <h2>Finalize seu pedido</h2>
       </div>
 
-      <form>
+      <form [formGroup]="formContent" novalidade>
         <div class="form-content">
           <h3>Seus dados</h3>
           <div class="inputs">
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="E-mail">
-            <input type="email" placeholder="Confirmação do email">
+            <div class="input-validation">
+              <input [ngClass]="inputValidation('name')" formControlName="name" type="text" placeholder="Nome">
+              <div class="message">
+                <p *ngIf="!formContent.get('name').valid && formContent.get('name').touched">campo obrigatório
+                </p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input [ngClass]="inputValidation('email')" formControlName="email" type="email" placeholder="E-mail">
+              <div class="message">
+                <p *ngIf="!formContent.get('email').valid && formContent.get('email').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input [ngClass]="inputValidation('confirm')" formControlName="confirm" type="email"
+                placeholder="Confirmação do email">
+              <div class="message">
+                <p *ngIf="!formContent.get('confirm').valid && formContent.get('confirm').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="form-content">
           <h3>Endereço de entrega</h3>
           <div class="inputs">
-            <input type="text" placeholder="Endereço">
-            <input type="email" placeholder="Número">
-            <input type="email" placeholder="Complemento">
+            <div class="input-validation">
+              <input [ngClass]="inputValidation('address')" formControlName="address" type="text"
+                placeholder="Endereço">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('address').valid && this.formContent.get('address').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input [ngClass]="inputValidation('number')" formControlName="number" type="email" placeholder="Número">
+              <div class="message">
+                <p *ngIf="!this.formContent.get('number').valid && this.formContent.get('number').touched">campo
+                  obrigatório</p>
+              </div>
+            </div>
+            <div class="input-validation">
+              <input formControlName="complement" type="email" placeholder="Complemento">
+            </div>
           </div>
         </div>
 
-        <div class="order-items">
+        <div class="order-items" *ngIf="getDetailFromCart().length">
           <h3>Itens do pedido:</h3>
-          <app-order-item></app-order-item>
+          <app-order-item [detail]="getDetailFromCart()" (increase)="addQuantity($event)"
+            (decrease)="removeQuantity($event)" (remove)="removeItem($event)"></app-order-item>
+        </div>
+
+        <div class="order-items" *ngIf="!getDetailFromCart().length">
+          <p>Não há pedidos no carrinho</p>
         </div>
 
         <div class="finishing-order">
           <div class="payment-types">
             <h3>Formas de pagamento:</h3>
-            <div class="radio-button">
-              <input type="radio">
-              <p>Dinheiro</p>
-            </div>
 
-            <div class="radio-button">
-              <input type="radio">
-              <p>Cartão de crédito</p>
-            </div>
+            <div class="control-radio" formGroupName="radios">
+              <div class="radio-button">
+                <input type="radio" value="money" formControlName="radio_button">
+                <p>Dinheiro</p>
+              </div>
 
-            <div class="radio-button">
-              <input type="radio">
-              <p>Vale refeição</p>
+              <div class="radio-button">
+                <input type="radio" value="credit-card" formControlName="radio_button">
+                <p>Cartão de crédito</p>
+              </div>
+
+              <div class="radio-button">
+                <input type="radio" value="worth-eating" formControlName="radio_button">
+                <p>Vale refeição</p>
+              </div>
             </div>
           </div>
 
@@ -53,20 +95,23 @@
             <h3>Frete e total:</h3>
             <div class="shipping-row border">
               <p>Itens</p>
-              <p>R$ 44,50</p>
+              <p>{{ total() | currency:'BRL' }}</p>
             </div>
 
             <div class="shipping-row">
-              <p>Itens</p>
-              <p>R$ 44,50</p>
+              <p>Frete</p>
+              <p>R$ 8.00</p>
             </div>
 
             <div class="shipping-row margin">
-              <p>Itens</p>
-              <p>R$ 44,50</p>
+              <p>Total</p>
+              <p>{{ total() | currency:'BRL' }}</p>
             </div>
 
-            <button>Concluir pedido</button>
+            <button [ngClass]="formValidation()" (click)="submitForm()" type="button" [disabled]="!formContent.valid">
+              <img src="./assets/images/credit-card.svg" alt="">
+              Concluir Pedido
+            </button>
           </div>
         </div>
       </form>

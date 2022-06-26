@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Restaurants } from '../models/restaurants/restaurants.model';
 import { Menu } from '../models/restaurants/menu.model';
 import { Reviews } from '../models/restaurants/review.model';
-
-// import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment.dev';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +14,18 @@ export class RestaurantsService {
   constructor(private http: HttpClient) { }
 
   getRestaurants() {
-    return this.http.get<Restaurants[]>(`http://localhost:3000/restaurants`);
+    return this.http.get<Restaurants[]>(`${environment.apiBase}/restaurants`);
   }
 
   getRestaurantsById(id: string) {
-    return this.http.get<Restaurants>(`http://localhost:3000/restaurants/${id}`);
+    return this.http.get<Restaurants>(`${environment.apiBase}/restaurants/${id}`);
   }
 
   getMenuById(id: string) {
-    return this.http.get<Menu[]>(`http://localhost:3000/restaurants/${id}/menu/`);
+    return this.http.get<Menu[]>(`${environment.apiBase}/restaurants/${id}/menu/`);
   }
 
   getReviewsById(id: string) {
-    return this.http.get<Reviews[]>(`http://localhost:3000/restaurants/${id}/reviews/`);
+    return this.http.get<Reviews>(`${environment.apiBase}/restaurants/${id}/reviews/`);
   }
 }

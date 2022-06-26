@@ -46,7 +46,9 @@
     }
 
     a {
-      @include links(#FF6600, #FFF)
+      @include links(#FF6600, #FFF);
+      padding: 20px;
+      font-size: 18px;
     }
   }
 }

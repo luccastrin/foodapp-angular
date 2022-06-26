@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { RestaurantEvaluationComponent } from './restaurant-evaluation.component';
+import { RestaurantEvaluationComponent } from "./restaurant-evaluation.component";
 
 describe('RestaurantEvaluationComponent', () => {
   let component: RestaurantEvaluationComponent;
-  let fixture: ComponentFixture<RestaurantEvaluationComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ RestaurantEvaluationComponent ]
-    })
-    .compileComponents();
-  });
+  let mockRestaurantService: any;
+  let mockRouteActivated: any;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RestaurantEvaluationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    mockRestaurantService = {
+      getReviewsById: jest.fn()
+    }
 
-  it('should create', () => {
+    mockRouteActivated = {
+      snapshot: {
+        paramMap: 'id'
+      }
+    }
+
+    component = new RestaurantEvaluationComponent(mockRouteActivated, mockRestaurantService)
+  })
+
+  it('Should create the component', () => {
     expect(component).toBeTruthy();
   });
-});
+})
