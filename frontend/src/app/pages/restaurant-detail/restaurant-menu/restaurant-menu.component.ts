@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { Menu } from 'src/app/shared/models/restaurants/menu.model';
-
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 @Component({
   selector: 'app-restaurant-menu',
@@ -11,7 +9,7 @@ import { RestaurantsService } from 'src/app/shared/services/restaurants.service'
 })
 export class RestaurantMenuComponent implements OnInit {
   menuDetails: Menu[];
-  idPathMenu: any;
+  idPathMenu: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,19 +17,12 @@ export class RestaurantMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(paramMap => {
-      this.idPathMenu = paramMap.get('id');
-    })
-
-    console.log(this.idPathMenu)
-
+    this.idPathMenu = +this.route.parent.snapshot.paramMap.get('id');
     this.popularMenuById(this.idPathMenu);
   }
 
-  popularMenuById(id) {
+  popularMenuById(id: number) {
     this.restaurantsService.getMenuById(id).subscribe((response: Menu[]) => {
-      console.log('id', this.idPathMenu)
-      console.log('getMenuById', response)
       this.menuDetails = response;
     })
   }

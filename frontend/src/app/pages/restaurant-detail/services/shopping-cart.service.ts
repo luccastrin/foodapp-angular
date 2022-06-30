@@ -12,7 +12,7 @@ export class ShoppingCartService {
   }
 
   addDetail(detail: Menu) {
-    let foundItem = this.detailArr.find(item => detail.id === item.menuItem.id);
+    let foundItem = this.detailArr.find(item => detail.id_menu === item.menuItem.id_menu);
     if (foundItem) {
       this.increaseQuantity(foundItem);
     } else {

@@ -5,7 +5,7 @@ export class Restaurants {
   getRestaurants(req: Request, res: Response) {
     const sql = 'SELECT * FROM restaurants';
     connection.query<RowDataPacket[]>(sql, (error, rows, fields) => {
-      return res.json(rows)
+      return res.json(rows);
     });
   }
 

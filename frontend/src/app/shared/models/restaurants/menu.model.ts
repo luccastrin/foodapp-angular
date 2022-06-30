@@ -1,8 +1,7 @@
 export interface Menu {
-  id: number;
-  imagePath: string;
+  image_path: string;
   name: string
   description: string;
   price: number;
-  restaurantId: string;
+  id_menu: number;
 }

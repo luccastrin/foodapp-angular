@@ -1,10 +1,10 @@
 export interface Restaurants {
-  id: number;
+  id_restaurant: number;
   name: string;
   category: string;
-  deliveryEstimate: string;
+  delivery_estimate: string;
   rating: number;
-  imagePath: string;
+  image_path: string;
   about: string;
   hours: string;
 }

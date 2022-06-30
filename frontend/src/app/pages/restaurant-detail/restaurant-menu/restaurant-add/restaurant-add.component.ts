@@ -17,6 +17,5 @@ export class RestaurantAddComponent implements OnInit {
 
   addingDataToCart() {
     this.shoppingCartService.addDetail(this.menuDetail);
-    // console.log('add', this.shoppingCartService)
   }
 }

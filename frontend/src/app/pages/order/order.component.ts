@@ -46,7 +46,6 @@ export class OrderComponent implements OnInit {
   }
 
   formValidation() {
-    console.log(this.formContent.valid)
     return this.formContent.valid ? 'button-success' : 'button-disabled';
   }
 

@@ -3,5 +3,5 @@ export interface Reviews {
   date: string;
   rating: number;
   comments: string;
-  restaurantId: string;
+  id_reviews: number;
 }
