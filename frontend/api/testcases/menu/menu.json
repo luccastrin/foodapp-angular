@@ -5,7 +5,7 @@
     "params": [
       {
         "name": "id",
-        "value": "bread-bakery"
+        "value": 1
       }
     ],
     "body": {}
@@ -15,24 +15,24 @@
     "status": 200,
     "content": [
       {
-        "id": "cup-cake",
-        "imagePath": "assets/images/foods/cupcake.png",
+        "id_restaurant": "cup-cake",
+        "image_path": "assets/images/foods/cupcake.png",
         "name": "Cup Cake",
         "description": "Cup Cake recheado de Doce de Leite",
         "price": 8.7,
         "restaurantId": "bread-bakery"
       },
       {
-        "id": "donut",
-        "imagePath": "assets/images/foods/donut.png",
+        "id_restaurant": "donut",
+        "image_path": "assets/images/foods/donut.png",
         "name": "Donut",
         "description": "Coberto com chantilly",
         "price": 2.5,
         "restaurantId": "bread-bakery"
       },
       {
-        "id": "bread",
-        "imagePath": "assets/images/foods/bread.png",
+        "id_restaurant": "bread",
+        "image_path": "assets/images/foods/bread.png",
         "name": "Pão Artesanal Italiano",
         "description": "Pão artesanal com queijos italianos",
         "price": 15.9,

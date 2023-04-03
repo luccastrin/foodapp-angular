@@ -1,18 +1,15 @@
+import { TestBed } from '@angular/core/testing';
 import { RestaurantsService } from './restaurants.service';
 
-describe('RestaurantService', () => {
-  let component: RestaurantsService;
-  let mockHttpClientService: any;
+describe('RestaurantsService', () => {
+  let service: RestaurantsService;
 
   beforeEach(() => {
-    mockHttpClientService = {
-      get: jest.fn()
-    }
-
-    component = new RestaurantsService(mockHttpClientService);
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(RestaurantsService);
   });
 
-  it('Should create the component', () => {
-    expect(component).toBeTruthy();
-  })
-})
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

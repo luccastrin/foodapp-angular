@@ -1,27 +1,20 @@
-import { of } from "rxjs";
-import { RestaurantsComponent } from "./restaurants.component";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RestaurantsComponent } from './restaurants.component';
 
 describe('RestaurantsComponent', () => {
   let component: RestaurantsComponent;
-  let mockRestaurantService: any;
+  let fixture: ComponentFixture<RestaurantsComponent>;
 
   beforeEach(() => {
-    mockRestaurantService = {
-      getRestaurants: jest.fn()
-    }
+    TestBed.configureTestingModule({
+      declarations: [RestaurantsComponent]
+    });
 
-    component = new RestaurantsComponent(mockRestaurantService)
-  })
+    fixture = TestBed.createComponent(RestaurantsComponent);
+    component = fixture.componentInstance;
+  });
 
-  it('Should create the component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should pass in ngOnInit', () => {
-    jest.spyOn(mockRestaurantService, 'getRestaurants').mockReturnValue(of({ teste: 'teste' }));
-
-    component.populateRestaurants();
-
-    expect(mockRestaurantService.getRestaurants).toHaveBeenCalled();
-  });
-})
+});

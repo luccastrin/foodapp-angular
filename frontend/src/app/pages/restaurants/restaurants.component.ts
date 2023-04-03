@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { Restaurants } from 'src/app/shared/models/restaurants/restaurants.model';
@@ -18,8 +19,11 @@ export class RestaurantsComponent implements OnInit {
   }
 
   populateRestaurants() {
-    this.restaurantsService.getRestaurants().subscribe(response => {
-      this.restaurants = response;
-    });
+    this.restaurantsService.getRestaurants().subscribe({
+      next: (response: Restaurants[]) => {
+        this.restaurants = response;
+      },
+      error: (error: HttpErrorResponse) => console.log(error),
+    })
   }
 }

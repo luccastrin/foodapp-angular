@@ -31,4 +31,4 @@ const material = [
     FooterComponent,
   ]
 })
-export class ComponentsModule { }
+export class SharedModule { }

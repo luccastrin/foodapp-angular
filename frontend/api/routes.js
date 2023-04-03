@@ -15,4 +15,8 @@ routerMain.get('/restaurants/:id/menu', (req, res) => {
   montaResposta(req, res, 'menu');
 });
 
+routerMain.get('/restaurants/:id/reviews', (req, res) => {
+  montaResposta(req, res, 'reviews');
+});
+
 module.exports = routerMain;
